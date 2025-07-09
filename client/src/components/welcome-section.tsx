@@ -43,7 +43,17 @@ export default function WelcomeSection({
           <Sun className="w-16 h-16 text-white" />
         </div>
         
-        <h1 className="text-4xl font-bold text-gray-800 mb-6">Morning Momentum</h1>
+        <div className="mb-6">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Morning Momentum</h1>
+          <div className="sunrise-header text-white p-4 rounded-2xl shadow-lg">
+            <p className="text-lg font-semibold mb-2">
+              ✨ Today, you get to choose who you will be and what you will create.
+            </p>
+            <p className="text-sm opacity-90">
+              Set your intention and your goals so your day moves you closer to who you want to become.
+            </p>
+          </div>
+        </div>
         
         <Card className="mb-8 shadow-xl">
           <CardContent className="pt-6">
@@ -58,22 +68,19 @@ export default function WelcomeSection({
           </CardContent>
         </Card>
         
-        <div className="flex items-center justify-center space-x-4 mb-8">
-          <div className="text-center">
-            <div className="text-2xl streak-flame">🔥</div>
-            <div className="text-2xl font-bold text-gray-800">
-              {userStats?.currentStreak || 0}
+        <Card className="mb-8 bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-xl">
+          <CardContent className="pt-6">
+            <div className="text-center">
+              <div className="text-3xl mb-2">🎉</div>
+              <div className="text-2xl font-bold mb-1">
+                Day {userStats?.currentStreak || 0} of showing up for yourself!
+              </div>
+              <div className="text-sm opacity-90">
+                {userStats?.totalCompletions || 0} total completions
+              </div>
             </div>
-            <div className="text-sm text-gray-500">day streak</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl">⭐</div>
-            <div className="text-2xl font-bold text-gray-800">
-              {userStats?.totalCompletions || 0}
-            </div>
-            <div className="text-sm text-gray-500">completed</div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
         
         <Button 
           onClick={onStartDay}

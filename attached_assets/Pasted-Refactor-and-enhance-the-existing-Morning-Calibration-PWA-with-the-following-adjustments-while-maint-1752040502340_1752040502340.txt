@@ -1,0 +1,49 @@
+Refactor and enhance the existing Morning Calibration PWA with the following adjustments while maintaining mobile-first, smooth animations, localStorage persistence, and PWA readiness:
+
+Feature Enhancements:
+
+✅ 1. Breathing & Gratitude Priming (First Step):
+	•	Add a “Take 3 deep breaths and feel gratitude” animation with a breathing circle (5 sec in, 5 sec out, 3 cycles) and a sunrise or nature GIF to wire the brain for positivity before intention/goal setting.
+	•	Allow skipping if the user is in a rush.
+
+✅ 2. Power Phrase Welcome:
+	•	Replace generic “Morning Calibration” with:
+“✨ Today, you get to choose who you will be and what you will create.”
+	•	Add:
+“Set your intention and your goals so your day moves you closer to who you want to become.”
+
+✅ 3. Starter Action Suggestion Generator:
+	•	In the “What tiny starter action will I take?” section, add a “Need ideas?” button that cycles suggested starter actions to reduce friction on low-energy days.
+
+✅ 4. “Why Today Matters” Field:
+	•	Add a prompt:
+“Why is it important for me to show up today?”
+	•	Store this with the daily entry.
+
+✅ 5. Streak Tracker (Visible):
+	•	Show “Day X of showing up for yourself” prominently.
+	•	Increment automatically when “Complete Morning Setup” is tapped.
+	•	Add a subtle confetti micro-animation or color pulse when streak is extended.
+
+✅ 6. Micro Visualization After Setup:
+	•	After “Complete Morning Setup,” guide user through a 15-second micro-visualization:
+“✨ Take 15 seconds to imagine yourself at the end of today, having achieved your goals, feeling proud, calm, and grateful.”
+	•	Include a countdown timer, optional nature sound toggle, and a “Done” button to confirm.
+
+✅ 7. Aesthetic Refinements:
+	•	Apply a warm sunrise gradient (soft orange, peach, blush pink) to the top header or background for warmth.
+	•	Use rounded, friendly sans-serif fonts (Nunito or Inter) for comfort.
+	•	Retain smooth animations, with gentle scale or fade transitions.
+
+⸻
+
+Technical Notes:
+	•	Continue using localStorage for data persistence.
+	•	All new fields should sync with the JSON schema provided below.
+	•	Ensure full offline functionality remains intact.
+	•	Maintain PWA installability.
+	•	Retain optional evening reflection workflow and weekly export functionality.
+
+⸻
+
+If any section is unclear, request clarification before implementation.

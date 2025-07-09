@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
+import { starterSuggestions } from "@/lib/starter-suggestions";
 import type { InsertMorningEntry, UserStats } from "@shared/schema";
 
 interface ChecklistSectionProps {
@@ -20,6 +21,8 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
   const [feeling, setFeeling] = useState("");
   const [action, setAction] = useState("");
   const [replace, setReplace] = useState("");
+  const [whyTodayMatters, setWhyTodayMatters] = useState("");
+  const [starterActionSuggestionUsed, setStarterActionSuggestionUsed] = useState(false);
   const [drankWater, setDrankWater] = useState(false);
   const [exposedToLight, setExposedToLight] = useState(false);
   const [movedBody, setMovedBody] = useState(false);
@@ -115,13 +118,22 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
       feeling,
       action,
       replace,
+      whyTodayMatters,
+      starterActionSuggestionUsed,
       drankWater,
       exposedToLight,
       movedBody,
       timerCompleted: true,
+      visualizationCompleted: false,
     };
 
     createEntryMutation.mutate(data);
+  };
+
+  const getSuggestion = () => {
+    const randomIndex = Math.floor(Math.random() * starterSuggestions.length);
+    setAction(starterSuggestions[randomIndex]);
+    setStarterActionSuggestionUsed(true);
   };
 
   const allPhysicalCompleted = drankWater && exposedToLight && movedBody;
@@ -129,7 +141,12 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
   return (
     <section className="min-h-screen px-6 py-8 pb-20">
       <div className="max-w-md mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Morning Calibration</h2>
+        <div className="sunrise-header text-white p-4 rounded-2xl shadow-lg mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-2">Morning Calibration</h2>
+          <p className="text-sm opacity-90">
+            Set your intention and your goals so your day moves you closer to who you want to become.
+          </p>
+        </div>
         
         <div className="space-y-6 mb-8">
           <Card className="shadow-lg">
@@ -164,13 +181,38 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
           
           <Card className="shadow-lg">
             <CardContent className="pt-6">
-              <Label className="text-gray-700 font-semibold mb-2 block">
-                What tiny starter action will I take?
-              </Label>
+              <div className="flex items-center justify-between mb-2">
+                <Label className="text-gray-700 font-semibold">
+                  What tiny starter action will I take?
+                </Label>
+                <Button
+                  onClick={getSuggestion}
+                  variant="outline"
+                  size="sm"
+                  className="suggestion-button"
+                >
+                  Need ideas?
+                </Button>
+              </div>
               <Textarea
                 value={action}
                 onChange={(e) => setAction(e.target.value)}
                 placeholder="Send one important email..."
+                className="resize-none"
+                rows={2}
+              />
+            </CardContent>
+          </Card>
+          
+          <Card className="shadow-lg">
+            <CardContent className="pt-6">
+              <Label className="text-gray-700 font-semibold mb-2 block">
+                Why is it important for you to show up today?
+              </Label>
+              <Textarea
+                value={whyTodayMatters}
+                onChange={(e) => setWhyTodayMatters(e.target.value)}
+                placeholder="To build my future, to serve others, to grow stronger..."
                 className="resize-none"
                 rows={2}
               />

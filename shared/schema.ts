@@ -9,10 +9,13 @@ export const morningEntries = pgTable("morning_entries", {
   feeling: text("feeling"),
   action: text("action"),
   replace: text("replace"),
+  whyTodayMatters: text("why_today_matters"),
+  starterActionSuggestionUsed: boolean("starter_action_suggestion_used").default(false),
   drankWater: boolean("drank_water").default(false),
   exposedToLight: boolean("exposed_to_light").default(false),
   movedBody: boolean("moved_body").default(false),
   timerCompleted: boolean("timer_completed").default(false),
+  visualizationCompleted: boolean("visualization_completed").default(false),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

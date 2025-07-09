@@ -45,10 +45,13 @@ export class MemStorage implements IStorage {
       feeling: insertEntry.feeling || null,
       action: insertEntry.action || null,
       replace: insertEntry.replace || null,
+      whyTodayMatters: insertEntry.whyTodayMatters || null,
+      starterActionSuggestionUsed: insertEntry.starterActionSuggestionUsed || false,
       drankWater: insertEntry.drankWater || false,
       exposedToLight: insertEntry.exposedToLight || false,
       movedBody: insertEntry.movedBody || false,
       timerCompleted: insertEntry.timerCompleted || false,
+      visualizationCompleted: insertEntry.visualizationCompleted || false,
       createdAt: new Date(),
     };
     this.morningEntries.set(id, entry);

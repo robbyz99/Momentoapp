@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Navigation from "@/components/navigation";
 import WelcomeSection from "@/components/welcome-section";
+import BreathingGratitude from "@/components/breathing-gratitude";
 import TimerSection from "@/components/timer-section";
 import ChecklistSection from "@/components/checklist-section";
+import MicroVisualization from "@/components/micro-visualization";
 import ReflectionSection from "@/components/reflection-section";
 import Confetti from "@/components/confetti";
 import { useLocalStorage } from "@/hooks/use-local-storage";
 import type { UserStats } from "@shared/schema";
 
-type Section = "welcome" | "timer" | "checklist" | "reflection";
+type Section = "welcome" | "breathing" | "timer" | "checklist" | "visualization" | "reflection";
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState<Section>("welcome");
@@ -53,12 +55,18 @@ export default function Home() {
       case "welcome":
         return (
           <WelcomeSection
-            onStartDay={() => setCurrentSection("timer")}
+            onStartDay={() => setCurrentSection("breathing")}
             userStats={userStats}
             dailyAffirmation={dailyAffirmation}
             setDailyAffirmation={setDailyAffirmation}
             affirmationDate={affirmationDate}
             setAffirmationDate={setAffirmationDate}
+          />
+        );
+      case "breathing":
+        return (
+          <BreathingGratitude
+            onComplete={() => setCurrentSection("timer")}
           />
         );
       case "timer":
@@ -71,15 +79,24 @@ export default function Home() {
       case "checklist":
         return (
           <ChecklistSection
-            onComplete={handleCelebration}
+            onComplete={() => setCurrentSection("visualization")}
             onNext={() => setCurrentSection("reflection")}
             onStatsUpdate={handleStatsUpdate}
+          />
+        );
+      case "visualization":
+        return (
+          <MicroVisualization
+            onComplete={() => {
+              handleCelebration();
+              setCurrentSection("reflection");
+            }}
           />
         );
       case "reflection":
         return <ReflectionSection onComplete={handleCelebration} />;
       default:
-        return <WelcomeSection onStartDay={() => setCurrentSection("timer")} userStats={userStats} />;
+        return <WelcomeSection onStartDay={() => setCurrentSection("breathing")} userStats={userStats} />;
     }
   };
 

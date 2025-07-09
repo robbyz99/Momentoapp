@@ -1,0 +1,22 @@
+export const starterSuggestions = [
+  "Send a gratitude text",
+  "Do 5 pushups",
+  "Step outside for 3 deep breaths",
+  "Write 3 lines in your journal",
+  "Open your most important project",
+  "Drink a glass of water mindfully",
+  "Send one important email",
+  "Read one page of an inspiring book",
+  "Do a 2-minute meditation",
+  "Organize your workspace",
+  "Call someone you care about",
+  "Take a cold shower",
+  "Write down 3 things you're grateful for",
+  "Do some gentle stretches",
+  "Listen to an uplifting song",
+  "Review your goals for the day",
+  "Make your bed with intention",
+  "Take a photo of something beautiful",
+  "Write a positive affirmation",
+  "Plan your first work task"
+];

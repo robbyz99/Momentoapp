@@ -27,6 +27,9 @@
   --primary-light: hsl(158, 64%, 72%);
   --accent-blue: hsl(213, 93%, 68%);
   --success: hsl(142, 76%, 67%);
+  --sunrise-orange: hsl(25, 95%, 70%);
+  --sunrise-peach: hsl(15, 100%, 85%);
+  --sunrise-pink: hsl(340, 100%, 90%);
 }
 
 .dark {
@@ -103,6 +106,21 @@
     height: 8px;
     animation: confetti-fall 3s linear forwards;
   }
+
+  .breathing-circle-gratitude {
+    @apply w-64 h-64 rounded-full shadow-2xl;
+    background: radial-gradient(circle, var(--sunrise-orange), var(--sunrise-peach), var(--sunrise-pink));
+    animation: breathe-slow 10s ease-in-out infinite;
+    box-shadow: 0 0 60px rgba(255, 165, 0, 0.4);
+  }
+
+  .sunrise-header {
+    background: linear-gradient(135deg, var(--sunrise-orange) 0%, var(--sunrise-peach) 50%, var(--sunrise-pink) 100%);
+  }
+
+  .suggestion-button {
+    @apply px-3 py-1 text-sm bg-primary text-white hover:bg-green-600 rounded-full transition-all duration-200 border-none;
+  }
 }
 
 @keyframes breathe {
@@ -111,6 +129,17 @@
   }
   50% { 
     transform: scale(1.1); 
+  }
+}
+
+@keyframes breathe-slow {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 1;
   }
 }
 
