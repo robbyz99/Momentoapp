@@ -22,7 +22,7 @@ Preferred communication style: Simple, everyday language.
 - **Framework**: Express.js with TypeScript
 - **API Design**: RESTful API with JSON responses
 - **Database**: PostgreSQL with Drizzle ORM
-- **Storage**: Neon Database (serverless PostgreSQL)
+- **Storage**: DatabaseStorage class using Neon Database (serverless PostgreSQL)
 - **Session Management**: Connect-pg-simple for PostgreSQL-based sessions
 
 ### Mobile-First Design
@@ -64,7 +64,7 @@ Preferred communication style: Simple, everyday language.
 ### Database Schema
 ```sql
 -- Morning entries for daily planning
-morning_entries: id, date, identity, feeling, action, replace, completion_flags, timestamps
+morning_entries: id, date, identity, feeling, action, replace, why_today_matters, starter_action_suggestion_used, completion_flags, timestamps
 
 -- Evening reflections for progress tracking
 reflections: id, date, well_done, embodied, grateful, timestamps
@@ -72,6 +72,12 @@ reflections: id, date, well_done, embodied, grateful, timestamps
 -- User statistics for gamification
 user_stats: id, current_streak, total_completions, last_completion_date
 ```
+
+### Recent Changes (July 2025)
+- **Database Migration**: Replaced MemStorage with DatabaseStorage using PostgreSQL
+- **Enhanced Schema**: Added `whyTodayMatters` and `starterActionSuggestionUsed` fields
+- **New Flow Sections**: Added breathing gratitude and micro-visualization components
+- **UI Enhancements**: Starter action suggestion generator and improved navigation
 
 ### API Endpoints
 - `POST /api/morning-entries` - Create daily morning entry
