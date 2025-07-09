@@ -1,0 +1,93 @@
+Create a clean, minimalist, mobile-friendly web app I can add to my phone’s home screen and open immediately upon waking to wire my brain for positivity and productivity, using principles from Dr. Joe Dispenza, behavior design, and neuroscience.
+
+⸻
+
+⚡ App Purpose:
+
+To prime my brain and body each morning for positivity, action, and alignment with my best self before distractions hit, helping me start the day with momentum and intention.
+
+⸻
+
+🌅 Core Features:
+
+1️⃣ Welcome Screen
+	•	A calming message:
+“Today is a new page. You get to choose who you are.”
+	•	Optional daily affirmation auto-displayed or randomly rotated.
+
+⸻
+
+2️⃣ Breathing & Visualization Timer (2–5 min)
+	•	Guided box breathing animation or 5-4-3-2-1 countdown.
+	•	Prompt: “Visualize your best self moving confidently through your day.”
+	•	Gentle chime on completion.
+
+⸻
+
+3️⃣ Morning Calibration Checklist
+	•	Text Inputs:
+	•	“Who do I want to be today?” (qualities, energy)
+	•	“What feeling will I generate first (gratitude, worthiness, joy)?”
+	•	“What tiny starter action will I take toward my key goal today?”
+	•	“What old thought or behavior will I replace today?”
+	•	Checkboxes:
+	•	☑️ Drank water
+	•	☑️ Exposed to light
+	•	☑️ Moved body for 1 min (stretch/jump)
+	•	Display affirmation:
+“I am greater than my environment, body, and time. I choose to be the creator of my life.”
+
+⸻
+
+4️⃣ Momentum Reflection (Optional, End of Day)
+	•	Prompts:
+	•	“What did I do well today?”
+	•	“How did I embody my new self?”
+	•	“What am I grateful for about today?”
+	•	Save reflections to localStorage.
+
+⸻
+
+🌱 Behavioral Nudges:
+
+✅ Use positive color palette (light greens, warm whites, soft blues).
+✅ Use progress streak indicator to encourage consistency.
+✅ Confetti or gentle animation on checklist completion for dopamine reward.
+✅ Option to export weekly reflections for journaling.
+
+⸻
+
+📱 Technical Requirements:
+
+✅ Responsive design for iPhone/Android screens.
+✅ LocalStorage for saving entries, streaks, and reflections.
+✅ Lightweight (fast load, offline capable) for immediate morning use.
+✅ Add to Home Screen PWA compatibility with a clean app icon.
+✅ Use Vanilla JS or Vue/React if needed for smooth animations.
+
+⸻
+
+🧘 Optional Enhancements:
+
+✅ Gentle ambient background sound toggle during breathing/visualization.
+✅ Editable daily affirmation list in settings.
+✅ Option to randomize affirmations and reflection prompts for variety.
+✅ Data visualization for consistency tracking if user desires.
+
+⸻
+
+App Title: “Morning Momentum”
+
+⸻
+
+Goal:
+
+Create a frictionless, inspiring morning launchpad that I will open immediately upon waking to:
+	•	Generate positive emotion.
+	•	Create clarity for the day.
+	•	Take immediate tiny actions to reduce inertia.
+	•	Wire my brain for productivity and positivity.
+
+⸻
+
+If any functionality is unclear, ask clarifying questions to align it for practical, immediate use.
