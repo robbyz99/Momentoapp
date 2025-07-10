@@ -8,7 +8,9 @@ Steps:
 
 1. Run `npm install` to install dependencies.
 2. Run `npm run build` to create the production files in `dist/public/`.
-3. Create a new repository named `robbyz99.github.io` on your GitHub account.
-4. Copy the contents of `dist/public/` into that repository's root and push.
-5. Enable GitHub Pages from the repository settings. The site will then be served at `https://robbyz99.github.io/`.
+3. Create a new repository named `robbyz99.github.io` on your GitHub account (or rename this one).
+4. Run `npm run deploy` to push the contents of `dist/public/` to that repository's `main` branch.
+5. Enable GitHub Pages from the repository settings. After a few minutes the site will be served at `https://robbyz99.github.io/`.
+
+The `deploy` script uses the [gh-pages](https://github.com/tschaub/gh-pages) tool to automatically publish the static build. Ensure you have write access to the `robbyz99.github.io` repository before running it.
 
