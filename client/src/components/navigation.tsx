@@ -27,8 +27,9 @@ export default function Navigation({ currentSection, onSectionChange }: Navigati
                 ? "text-primary"
                 : "text-gray-500 hover:text-primary"
             }`}
+            aria-label={`Navigate to ${label} section`}
           >
-            <Icon className="w-5 h-5 mb-1" />
+            <Icon className="w-5 h-5 mb-1" aria-hidden="true" />
             <span className="text-xs">{label}</span>
           </button>
         ))}

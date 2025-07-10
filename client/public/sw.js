@@ -1,11 +1,11 @@
 const CACHE_NAME = 'morning-momentum-v1';
 const urlsToCache = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
   '/manifest.json',
   '/icon-192x192.png',
-  '/icon-512x512.png'
+  '/icon-512x512.png',
+  '/src/main.tsx',
+  '/src/index.css'
 ];
 
 self.addEventListener('install', (event) => {

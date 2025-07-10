@@ -57,7 +57,7 @@ export default function MilestoneCelebration({ streak, onComplete }: MilestoneCe
     }
   };
 
-  const isMilestone = streak % 7 === 0 || streak === 21 || streak === 50;
+  const isMilestone = (streak > 0 && streak % 7 === 0) || streak === 21 || streak === 50;
 
   // Don't show celebration for non-milestone days
   if (!isMilestone) {

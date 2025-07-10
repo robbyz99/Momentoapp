@@ -78,7 +78,7 @@ export default function Home() {
 
   const checkForMilestone = () => {
     const streak = userStats?.currentStreak || 0;
-    const isMilestone = streak % 7 === 0 || streak === 21 || streak === 50;
+    const isMilestone = (streak > 0 && streak % 7 === 0) || streak === 21 || streak === 50;
     
     if (isMilestone && streak > 0) {
       setCurrentSection("milestone");

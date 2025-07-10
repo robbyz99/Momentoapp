@@ -1,0 +1,94 @@
+Please conduct thorough QA testing on the Morning Momentum PWA, focusing on performance optimization, consistency, and stability across all features and flows. Prioritize:
+
+⸻
+
+✅ Functional Consistency Checks
+	•	Ensure all navigation paths (including Quick Mode, Full Flow, and bottom navigation) function without dead links or navigation stack issues.
+	•	Validate data persistence:
+	•	Streak tracking increments correctly and resets only when appropriate.
+	•	Quick Mode and Full Mode entries save and persist across app reloads.
+	•	Reflection data is accurately timestamped and retrievable.
+	•	Confirm completion flags for each section are accurately set and reflected in the UI.
+	•	Check animations (breathing, confetti) trigger reliably and do not freeze or stutter.
+	•	Verify onboarding flow appears only on first launch (or if reset), does not repeat unnecessarily.
+	•	Test form validations:
+	•	Required fields prompt gently if skipped.
+	•	No crashes on empty or partial inputs.
+
+⸻
+
+✅ Performance Testing
+	•	Measure initial load time and ensure it is under 2 seconds on a standard 4G connection.
+	•	Check screen transitions for smoothness (no jank or lag).
+	•	Verify service worker caching:
+	•	The app functions offline after first load.
+	•	New deployments correctly update cached files without stale data issues.
+	•	Confirm animations and SVG timers remain performant on low-end devices.
+	•	Test memory usage during:
+	•	Extended use (10+ minutes navigating the app).
+	•	Switching between Quick Mode and Full Mode repeatedly.
+
+⸻
+
+✅ Mobile Optimization QA
+	•	Test on different iOS Safari and Chrome mobile viewport widths:
+	•	320px, 375px, 414px, 768px (iPhone SE → Pro Max → iPad mini).
+	•	Ensure touch targets are consistently 44px+.
+	•	Check keyboard overlay behaviors:
+	•	Forms scroll correctly into view.
+	•	Input fields are not covered on smaller screens.
+	•	Validate PWA install:
+	•	Home screen icon appears correctly.
+	•	Launches without browser chrome.
+	•	Splash screen colors and icon alignment are correct.
+
+⸻
+
+✅ Accessibility Consistency
+	•	Confirm WCAG AA contrast compliance across all screens.
+	•	Ensure ARIA labels are present on:
+	•	Navigation icons.
+	•	Buttons (“Start Your Day”, “Continue”, etc.).
+	•	Form inputs.
+	•	Verify voice-over navigation correctly reads sections in order.
+
+⸻
+
+✅ Edge Case Testing
+	•	Switching network off and on while in-app:
+	•	Does not cause crashes.
+	•	Offline functionality persists.
+	•	Rapidly tapping buttons does not trigger duplicate events or crashes.
+	•	Multiple day usage with changing streaks:
+	•	Verify streak increment, skip, and recovery flows.
+	•	Test user missing multiple days and streak reset behavior.
+
+⸻
+
+✅ Reporting Requirements
+
+For each identified bug, please include:
+✅ Title (short summary)
+✅ Steps to reproduce
+✅ Expected vs. actual behavior
+✅ Screenshot or console log if relevant
+✅ Severity rating (Critical, Major, Minor)
+
+⸻
+
+✅ Optional Advanced: Lighthouse & Profiling
+	•	Run Lighthouse audits:
+	•	Performance
+	•	Accessibility
+	•	PWA compliance
+	•	Run memory profiling to identify leaks.
+	•	Check unused JS/CSS for bundle size optimization opportunities.
+
+⸻
+
+🎯 Goals:
+
+✅ Ensure stable, frictionless daily use for your target users.
+✅ Optimize load times and runtime smoothness for mobile-first usage.
+✅ Confirm all data saves and retrieves consistently without corruption or unexpected resets.
+✅ Maintain clean UI/UX consistency and professional polish.
