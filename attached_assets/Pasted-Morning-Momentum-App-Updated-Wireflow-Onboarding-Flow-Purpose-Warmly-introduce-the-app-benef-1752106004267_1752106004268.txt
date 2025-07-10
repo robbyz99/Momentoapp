@@ -1,0 +1,105 @@
+Morning Momentum App – Updated Wireflow
+
+Onboarding Flow
+	•	Purpose: Warmly introduce the app, benefits, user expectations, mode choice, and optional notifications.
+	•	Steps:
+1️⃣ Welcome & app mission
+2️⃣ What to expect (short, neuroscience-backed routines)
+3️⃣ Choose mode: Quick Mode or Full Mode
+4️⃣ Enable optional daily reminders
+5️⃣ Begin
+
+Navigation: Onboarding → Welcome Screen
+
+⸻
+
+Welcome Screen
+	•	Purpose: Set the motivational tone and present the user’s streak and Quick Mode option.
+	•	Elements:
+	•	Power phrase + daily affirmation
+	•	Streak tracker (“Day X of showing up”)
+	•	Total completions
+	•	Large “Start Your Day” button
+	•	“Quick Mode (2 min)” button
+
+Navigation: Welcome → Breathe & Center
+Alternative: Welcome → Quick Mode
+
+⸻
+
+Breathe & Center (Merged Section)
+	•	Purpose: Calm and center the mind using breathing and an optional extended timer.
+	•	Elements:
+	•	3-cycle breathing animation with visual and text guidance
+	•	Optional 2–5 minute extended breathing/meditation timer
+	•	Circular SVG progress
+	•	Motivational messages
+	•	“Continue” button
+
+Navigation: Breathe & Center → Morning Checklist
+
+⸻
+
+Morning Checklist
+	•	Purpose: Capture intentions, gratitude, starter action, physical wellness, and reasons for showing up.
+	•	Elements:
+	•	“Today I am someone who…” (identity statement)
+	•	“Right now I feel…” (check-in)
+	•	“What tiny starter action will I take?” (+ “Need ideas?” button)
+	•	“Why is it important for you to show up today?”
+	•	“What will I replace today?” (habit swap)
+	•	Physical wellness checkboxes: water, light, movement
+	•	“Complete Morning Setup” button
+
+Navigation: Morning Checklist → Micro-Visualization
+
+⸻
+
+Micro-Visualization
+	•	Purpose: Reinforce intentions with a short, motivational visualization.
+	•	Elements:
+	•	15-second guided visualization with prompts
+	•	Countdown timer
+	•	Motivational messaging
+	•	“Continue to Reflection” button
+
+Navigation: Micro-Visualization → Reflection
+
+⸻
+
+Reflection
+	•	Purpose: End-of-day reflection and streak recovery opportunity.
+	•	Elements:
+	•	“What did I do well today?”
+	•	“How did I embody my identity?”
+	•	“What am I grateful for?”
+	•	“Save Reflection” button
+	•	Historical reflections view
+	•	Streak Recovery: Gentle prompt if a day was missed to restore streak with a reflection.
+
+Navigation: Reflection → Milestone Celebration
+
+⸻
+
+Milestone Celebration
+	•	Purpose: Celebrate streak milestones, encourage sharing, and enable referrals.
+	•	Elements:
+	•	Confetti celebration on milestone days (7, 21, 50 days, etc.)
+	•	Shareable card with streak celebration
+	•	Optional share to Instagram, Twitter, text
+	•	Referral prompt: “Invite a friend to join Morning Momentum.”
+
+Navigation: Milestone Celebration → Welcome (start new day cycle)
+
+⸻
+
+Quick Mode (Alternative Flow)
+	•	Purpose: Enable consistency on rushed mornings while retaining core intention-setting.
+	•	Elements:
+	•	Identity statement
+	•	1-word gratitude entry
+	•	Auto-suggested starter action
+	•	Quick “Why today matters” note
+	•	“Done” with confetti celebration
+
+Navigation: Quick Mode → Milestone Celebration

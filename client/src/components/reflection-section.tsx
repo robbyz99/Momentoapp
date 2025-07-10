@@ -95,9 +95,14 @@ export default function ReflectionSection({ onComplete }: ReflectionSectionProps
   };
 
   return (
-    <section className="min-h-screen px-6 py-8 pb-20">
+    <section className="min-h-screen px-6 py-8 pb-20" style={{ backgroundColor: 'var(--warm-white)' }}>
       <div className="max-w-md mx-auto">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Evening Reflection</h2>
+        <div className="sunrise-header text-white p-4 rounded-2xl shadow-lg mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-2">Evening Reflection</h2>
+          <p className="text-sm opacity-90">
+            Take a moment to appreciate your day and set intentions for tomorrow.
+          </p>
+        </div>
         
         <div className="space-y-6 mb-8">
           <Card className="shadow-lg">

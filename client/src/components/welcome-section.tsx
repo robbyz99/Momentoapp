@@ -7,6 +7,7 @@ import type { UserStats } from "@shared/schema";
 
 interface WelcomeSectionProps {
   onStartDay: () => void;
+  onQuickMode?: () => void;
   userStats?: UserStats;
   dailyAffirmation?: string;
   setDailyAffirmation?: (affirmation: string) => void;
@@ -16,6 +17,7 @@ interface WelcomeSectionProps {
 
 export default function WelcomeSection({ 
   onStartDay, 
+  onQuickMode,
   userStats,
   dailyAffirmation,
   setDailyAffirmation,
@@ -82,12 +84,24 @@ export default function WelcomeSection({
           </CardContent>
         </Card>
         
-        <Button 
-          onClick={onStartDay}
-          className="w-full bg-primary text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-200 h-auto"
-        >
-          Start Your Day
-        </Button>
+        <div className="space-y-4">
+          <Button 
+            onClick={onStartDay}
+            className="w-full bg-primary text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-200 h-auto"
+          >
+            Start Your Day
+          </Button>
+          
+          {onQuickMode && (
+            <Button 
+              onClick={onQuickMode}
+              variant="outline"
+              className="w-full py-3 px-6 rounded-2xl font-semibold border-2 border-green-400 text-green-600 hover:bg-green-50 transform hover:scale-105 transition-all duration-200 h-auto"
+            >
+              In a rush? Try Quick Mode (2 min)
+            </Button>
+          )}
+        </div>
       </div>
     </section>
   );

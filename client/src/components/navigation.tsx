@@ -1,15 +1,15 @@
-import { Home, Wind, Clock, CheckSquare, Sparkles, Lightbulb } from "lucide-react";
+import { Home, Wind, CheckSquare, Sparkles, Lightbulb, Zap } from "lucide-react";
 
 interface NavigationProps {
   currentSection: string;
-  onSectionChange: (section: "welcome" | "breathing" | "timer" | "checklist" | "visualization" | "reflection") => void;
+  onSectionChange: (section: "welcome" | "breathe" | "quick" | "checklist" | "visualization" | "reflection") => void;
 }
 
 export default function Navigation({ currentSection, onSectionChange }: NavigationProps) {
   const navItems = [
     { id: "welcome", label: "Start", icon: Home },
-    { id: "breathing", label: "Breathe", icon: Wind },
-    { id: "timer", label: "Timer", icon: Clock },
+    { id: "breathe", label: "Breathe", icon: Wind },
+    { id: "quick", label: "Quick", icon: Zap },
     { id: "checklist", label: "Plan", icon: CheckSquare },
     { id: "visualization", label: "Visualize", icon: Sparkles },
     { id: "reflection", label: "Reflect", icon: Lightbulb },

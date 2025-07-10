@@ -33,31 +33,62 @@ Preferred communication style: Simple, everyday language.
 
 ## Key Components
 
-### 1. Welcome Section
+### 1. Onboarding Flow
+- Multi-step introduction with app benefits explanation
+- Mode selection (Full vs Quick Mode)
+- Notification preference setting
+- Skippable for returning users
+
+### 2. Welcome Section
 - Daily affirmation system with localStorage persistence
 - Motivational messaging and user statistics display
 - Streak tracking and progress visualization
+- Quick Mode access for busy days
 
-### 2. Timer Section
-- Configurable breathing/meditation timer (2-5 minutes)
-- Visual progress indicator with SVG circular progress
-- Audio notifications for completion
+### 3. Breathe & Center (Merged Component)
+- 3-cycle guided breathing animation
+- Optional extended meditation timer (2-5 minutes)
+- Visual progress indicators and motivational messaging
+- Flexible completion options
 
-### 3. Morning Checklist
-- Text inputs for daily intentions and goals
-- Physical wellness checkboxes (water, light, movement)
-- Form validation using Zod schemas
-- Automatic date-based entry creation
+### 4. Quick Mode
+- 2-minute essential routine for busy mornings
+- Identity statement, gratitude, starter action, and purpose
+- Maintains streak while providing flexibility
+- Auto-suggested actions to reduce friction
 
-### 4. Reflection Section
-- End-of-day reflection prompts
-- Gratitude and progress tracking
-- Historical reflection storage and retrieval
+### 5. Morning Checklist
+- Comprehensive daily intention setting
+- Enhanced with "why today matters" field
+- Starter action suggestion generator
+- Physical wellness tracking
+- Form validation and automatic saving
 
-### 5. Navigation System
-- Bottom tab navigation for mobile-first experience
-- Section-based routing with visual indicators
-- Smooth transitions between app sections
+### 6. Micro-Visualization
+- 15-second guided visualization
+- Reinforces daily intentions
+- Smooth integration with morning flow
+
+### 7. Reflection Section
+- End-of-day gratitude and progress tracking
+- Historical reflection storage
+- Streak recovery integration
+
+### 8. Milestone Celebration
+- Automatic celebrations at streak milestones (7, 21, 50 days)
+- Social sharing capabilities
+- Referral system integration
+- Confetti animations and motivational messaging
+
+### 9. Streak Recovery System
+- Gentle recovery prompts for missed days
+- One grace period per week with reflection
+- Maintains motivation while being forgiving
+
+### 10. Analytics System
+- Comprehensive event tracking
+- Ready for PostHog/Firebase integration
+- User behavior insights and completion rates
 
 ## Data Flow
 
@@ -76,8 +107,16 @@ user_stats: id, current_streak, total_completions, last_completion_date
 ### Recent Changes (July 2025)
 - **Database Migration**: Replaced MemStorage with DatabaseStorage using PostgreSQL
 - **Enhanced Schema**: Added `whyTodayMatters` and `starterActionSuggestionUsed` fields
-- **New Flow Sections**: Added breathing gratitude and micro-visualization components
-- **UI Enhancements**: Starter action suggestion generator and improved navigation
+- **Complete App Refactoring**: 
+  - Added comprehensive onboarding flow with mode selection
+  - Merged breathing and timer sections into unified "Breathe & Center"
+  - Added Quick Mode for time-constrained users (2-minute flow)
+  - Implemented milestone celebration system with sharing capabilities
+  - Added streak recovery system with grace period
+  - Integrated analytics tracking throughout the app
+- **New Components**: OnboardingFlow, QuickMode, BreatheCentre, MilestoneCelebration, StreakRecovery
+- **Growth Features**: Social sharing, referral system, and celebration animations
+- **Analytics Ready**: Event tracking system prepared for PostHog/Firebase integration
 
 ### API Endpoints
 - `POST /api/morning-entries` - Create daily morning entry
