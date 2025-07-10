@@ -1,0 +1,107 @@
+Please refactor and enhance the Morning Momentum App (a mobile-first PWA for morning mindfulness and productivity priming using neuroscience-based behavioral design) to align with the following feature, UX, and growth improvements:
+
+⸻
+
+1️⃣ Merge Timer + Breathing Section
+	•	Combine the current Breathing & Gratitude section and Timer section into a single “Breathe & Center” screen.
+	•	Features:
+	•	3-cycle breathing animation with instructions.
+	•	Optional extended timer (2-5 min) with circular SVG progress and motivational messaging.
+	•	Allow user to skip extended timer for flexibility.
+	•	Track completion status in the database/localStorage.
+
+⸻
+
+2️⃣ Add Optional Quick Mode
+	•	On the Welcome Screen, add:
+	•	“In a rush? Try Quick Mode (2 min)” button.
+	•	Quick Mode should:
+	•	Capture identity statement, 1-word gratitude, starter action (auto-suggested), and “why today matters.”
+	•	End with a confetti celebration.
+	•	Bypass other screens for busy days while maintaining streak.
+
+⸻
+
+3️⃣ Build Soft Onboarding Flow
+	•	On first launch:
+	•	Multi-screen onboarding:
+	1.	Welcome & benefits of the app.
+	2.	What to expect (short, intentional steps).
+	3.	Quick Mode or Full Mode choice.
+	4.	Enable optional notifications for daily reminders.
+	•	Use warm sunrise gradients, short, motivational copy.
+	•	Allow skipping onboarding if desired.
+	•	Save onboarding completion status.
+
+⸻
+
+4️⃣ Add Streak Recovery System
+	•	If a user misses a day:
+	•	Show a gentle prompt:
+“You missed yesterday, but your journey continues. Want to restore your streak with a quick reflection?”
+	•	Allow 1 “grace day” per week with a reflection or gratitude input to recover streak.
+
+⸻
+
+5️⃣ Implement Growth Hooks
+	•	At streak milestones (7, 21, 50 days):
+	•	Show a celebration modal with:
+	•	Confetti animation.
+	•	Share card (“I’ve completed 21 mindful mornings with Morning Momentum 🌅”).
+	•	Optional share to Instagram, Twitter, or text.
+	•	Add referral functionality:
+	•	“Invite a friend, and both of you unlock a premium visualization track.”
+	•	Track referrals using unique links.
+
+⸻
+
+6️⃣ Add Event Tracking for Analytics
+	•	Integrate PostHog or Firebase for event tracking.
+	•	Track:
+	•	app_open, start_day_pressed, breathing_completed, timer_started, timer_completed,
+	•	checklist_submitted, visualization_completed, reflection_submitted,
+	•	quick_mode_used, milestone_reached, share_clicked, referral_sent, feedback_submitted.
+	•	Track time spent on each screen, skip rates, and completion rates.
+	•	Store user’s chosen mode (Quick vs. Full).
+
+⸻
+
+7️⃣ Maintain PWA & Performance Standards
+	•	Retain:
+	•	Full offline support with service workers.
+	•	Home screen installation.
+	•	WCAG AA accessibility standards (color contrast, ARIA labels).
+	•	Touch targets (min. 44px) and mobile-first design.
+
+⸻
+
+8️⃣ Future (Optional AI Hooks, Mark for Future Sprints)
+	•	Mark placeholders for future:
+	•	Personalized affirmations.
+	•	Smart starter action suggestions.
+	•	Reflection analysis and insight summaries.
+	•	Dynamic micro-visualization scripts.
+	•	Include clear TODOs in the codebase for these enhancements.
+
+⸻
+
+Overall Goals:
+
+✅ Simplify and streamline user flow to reduce friction.
+✅ Provide flexibility with Quick Mode while maintaining habit consistency.
+✅ Enable organic growth with sharing and referrals.
+✅ Prepare structured data for continuous improvement post-launch.
+✅ Retain warm, motivating, calm aesthetic aligned with Morning Momentum’s mission.
+
+⸻
+
+Deliverables:
+
+✅ Fully updated PWA with new flow.
+✅ Clean, maintainable code with clear component separation.
+✅ Deployment-ready build on Replit with Git integration.
+✅ Staging environment for testing with debug mode for event tracking validation.
+
+⸻
+
+If anything is unclear, ask clarifying questions before implementation to ensure feature alignment.
