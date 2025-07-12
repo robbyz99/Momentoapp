@@ -1,183 +1,192 @@
-# Supabase CLI
+# Morning Momentum PWA 🌅
 
-[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
-](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
+A mobile-first Progressive Web App for morning mindfulness and productivity, built with React, TypeScript, and Supabase.
 
-[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
+## Features ✨
 
-This repository contains all the functionality for Supabase CLI.
+- **Morning Routine Tracking**: Log your morning activities and mood
+- **Breathing & Gratitude**: Guided breathing exercises and gratitude practice
+- **Timer Section**: Customizable morning timer with meditation
+- **Morning Checklist**: Track essential morning habits
+- **Micro-Visualization**: Quick visualization exercises
+- **Reflection Section**: Evening reflection and journaling
+- **Milestone Celebrations**: Celebrate your progress and streaks
+- **PWA Ready**: Install on your phone's home screen
+- **Offline Support**: Works without internet connection
 
-- [x] Running Supabase locally
-- [x] Managing database migrations
-- [x] Creating and deploying Supabase Functions
-- [x] Generating types directly from your database schema
-- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
+## Tech Stack 🛠️
 
-## Getting started
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Radix UI
+- **Backend**: Express.js, Supabase
+- **Database**: PostgreSQL (via Supabase)
+- **PWA**: Service Worker, Web App Manifest
+- **Deployment**: Vercel
 
-### Install the CLI
+## Quick Start 🚀
 
-Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-```bash
-npm i supabase --save-dev
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/morning-momentum-pwa.git
+   cd morning-momentum-pwa
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file with your Supabase credentials:
+   ```bash
+   SUPABASE_URL=https://glqkmqucggccnxxlbjzq.supabase.co
+   SUPABASE_ANON_KEY=your_supabase_anon_key
+   DATABASE_URL=postgresql://postgres:password@db.glqkmqucggccnxxlbjzq.supabase.co:5432/postgres?pgbouncer=true
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+## Database Setup 🗄️
+
+The app uses Supabase as the backend. Run this SQL in your Supabase SQL Editor:
+
+```sql
+-- Create morning_entries table
+CREATE TABLE IF NOT EXISTS morning_entries (
+  id SERIAL PRIMARY KEY,
+  date TEXT NOT NULL,
+  identity TEXT,
+  feeling TEXT,
+  action TEXT,
+  replace TEXT,
+  why_today_matters TEXT,
+  starter_action_suggestion_used BOOLEAN DEFAULT FALSE,
+  drank_water BOOLEAN DEFAULT FALSE,
+  exposed_to_light BOOLEAN DEFAULT FALSE,
+  moved_body BOOLEAN DEFAULT FALSE,
+  timer_completed BOOLEAN DEFAULT FALSE,
+  visualization_completed BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Create reflections table
+CREATE TABLE IF NOT EXISTS reflections (
+  id SERIAL PRIMARY KEY,
+  date TEXT NOT NULL,
+  well_done TEXT,
+  embodied TEXT,
+  grateful TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Create user_stats table
+CREATE TABLE IF NOT EXISTS user_stats (
+  id SERIAL PRIMARY KEY,
+  current_streak INTEGER DEFAULT 0,
+  total_completions INTEGER DEFAULT 0,
+  last_completion_date TEXT
+);
+
+-- Insert default user stats
+INSERT INTO user_stats (id, current_streak, total_completions, last_completion_date) 
+VALUES (1, 0, 0, NULL) 
+ON CONFLICT (id) DO NOTHING;
 ```
 
-To install the beta release channel:
+## Deployment 🌐
 
-```bash
-npm i supabase@beta --save-dev
+### Deploy to Vercel (Recommended)
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Import to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Add environment variables in Vercel dashboard
+
+3. **Configure Environment Variables**
+   In your Vercel project settings, add:
+   - `SUPABASE_URL`: Your Supabase project URL
+   - `SUPABASE_ANON_KEY`: Your Supabase anon key
+   - `DATABASE_URL`: Your Supabase database connection string
+
+### Deploy to Supabase
+
+See `SUPABASE_DEPLOYMENT.md` for detailed instructions.
+
+## Project Structure 📁
+
+```
+morning-momentum-pwa/
+├── client/                 # Frontend React app
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── pages/         # Page components
+│   │   ├── hooks/         # Custom React hooks
+│   │   └── lib/           # Utilities and configurations
+│   ├── public/            # Static assets
+│   └── index.html         # Entry point
+├── server/                # Express.js backend
+│   ├── index.ts          # Server entry point
+│   ├── routes.ts         # API routes
+│   └── db.ts            # Database configuration
+├── shared/               # Shared types and schemas
+├── supabase/            # Supabase configuration
+└── dist/                # Build output
 ```
 
-When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
+## API Endpoints 🔌
 
-```
-NODE_OPTIONS=--no-experimental-fetch yarn add supabase
-```
+- `GET /api/user-stats` - Get user statistics
+- `GET /api/morning-entries/date/:date` - Get morning entry for specific date
+- `POST /api/morning-entries` - Create new morning entry
+- `GET /api/reflections` - Get all reflections
+- `POST /api/reflections` - Create new reflection
 
-> **Note**
-For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
+## PWA Features 📱
 
-<details>
-  <summary><b>macOS</b></summary>
+- **Installable**: Add to home screen on mobile devices
+- **Offline Support**: Works without internet connection
+- **Push Notifications**: Morning reminders (coming soon)
+- **Responsive Design**: Optimized for mobile and desktop
 
-  Available via [Homebrew](https://brew.sh). To install:
+## Contributing 🤝
 
-  ```sh
-  brew install supabase/tap/supabase
-  ```
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-  To install the beta release channel:
-  
-  ```sh
-  brew install supabase/tap/supabase-beta
-  brew link --overwrite supabase-beta
-  ```
-  
-  To upgrade:
+## License 📄
 
-  ```sh
-  brew upgrade supabase
-  ```
-</details>
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-<details>
-  <summary><b>Windows</b></summary>
+## Support 💬
 
-  Available via [Scoop](https://scoop.sh). To install:
+If you have any questions or need help:
+- Open an issue on GitHub
+- Check the deployment guides in the docs folder
+- Review the Supabase dashboard for database issues
 
-  ```powershell
-  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
-  scoop install supabase
-  ```
+---
 
-  To upgrade:
-
-  ```powershell
-  scoop update supabase
-  ```
-</details>
-
-<details>
-  <summary><b>Linux</b></summary>
-
-  Available via [Homebrew](https://brew.sh) and Linux packages.
-
-  #### via Homebrew
-
-  To install:
-
-  ```sh
-  brew install supabase/tap/supabase
-  ```
-
-  To upgrade:
-
-  ```sh
-  brew upgrade supabase
-  ```
-
-  #### via Linux packages
-
-  Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
-
-  ```sh
-  sudo apk add --allow-untrusted <...>.apk
-  ```
-
-  ```sh
-  sudo dpkg -i <...>.deb
-  ```
-
-  ```sh
-  sudo rpm -i <...>.rpm
-  ```
-
-  ```sh
-  sudo pacman -U <...>.pkg.tar.zst
-  ```
-</details>
-
-<details>
-  <summary><b>Other Platforms</b></summary>
-
-  You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
-
-  ```sh
-  go install github.com/supabase/cli@latest
-  ```
-
-  Add a symlink to the binary in `$PATH` for easier access:
-
-  ```sh
-  ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
-  ```
-
-  This works on other non-standard Linux distros.
-</details>
-
-<details>
-  <summary><b>Community Maintained Packages</b></summary>
-
-  Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
-  To install in your working directory:
-
-  ```bash
-  pkgx install supabase
-  ```
-
-  Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
-</details>
-
-### Run the CLI
-
-```bash
-supabase bootstrap
-```
-
-Or using npx:
-
-```bash
-npx supabase bootstrap
-```
-
-The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
-
-## Docs
-
-Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
-
-## Breaking changes
-
-We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
-
-However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
-
-## Developing
-
-To run from source:
-
-```sh
-# Go >= 1.22
-go run . help
-```
+**Built with ❤️ for better mornings**
