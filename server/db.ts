@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
-import * as schema from "../shared/schema.js";
+import * as schema from "./schema.js";
 
 // Check for required environment variables
 const supabaseUrl = process.env.SUPABASE_URL;

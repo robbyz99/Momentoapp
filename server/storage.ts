@@ -1,4 +1,4 @@
-import { morningEntries, reflections, userStats, type MorningEntry, type Reflection, type UserStats, type InsertMorningEntry, type InsertReflection, type InsertUserStats } from "../shared/schema.js";
+import { morningEntries, reflections, userStats, type MorningEntry, type Reflection, type UserStats, type InsertMorningEntry, type InsertReflection, type InsertUserStats } from "./schema.js";
 import { eq, and, gte, lte } from "drizzle-orm";
 
 export interface IStorage {
