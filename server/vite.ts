@@ -69,15 +69,16 @@ export function serveStatic(app: express.Application) {
   
   // Check if we're in Vercel environment
   if (process.env.VERCEL) {
-    // In Vercel, we need to serve the built files
-    // First try to serve from dist, fallback to client if dist doesn't exist
+    // In Vercel, always try to serve from dist first
     if (fs.existsSync(distPath)) {
+      console.log("Serving from dist directory:", distPath);
       app.use(express.static(distPath));
       app.use("*", (_req, res) => {
         res.sendFile(path.resolve(distPath, "index.html"));
       });
     } else {
-      // Fallback to serving from client directory (for development)
+      console.log("Dist directory not found, serving from client directory:", clientPath);
+      // Fallback to serving from client directory
       app.use(express.static(clientPath));
       app.use("*", (_req, res) => {
         res.sendFile(path.resolve(clientPath, "index.html"));
