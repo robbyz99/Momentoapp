@@ -17,5 +17,10 @@
     }
   ],
   "buildCommand": "npm run build && npm run build:server",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "functions": {
+    "dist/index.js": {
+      "maxDuration": 30
+    }
+  }
 } 
