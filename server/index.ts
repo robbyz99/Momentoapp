@@ -3,7 +3,7 @@ import { registerRoutes } from "./routes.js";
 import { setupVite, serveStatic, log } from "./vite.js";
 import dotenv from "dotenv";
 
-// Force new deployment - import paths fixed
+// Force new deployment - Vercel cache bust
 dotenv.config();
 
 const app = express();
