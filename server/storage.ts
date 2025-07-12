@@ -1,5 +1,4 @@
 import { morningEntries, reflections, userStats, type MorningEntry, type Reflection, type UserStats, type InsertMorningEntry, type InsertReflection, type InsertUserStats } from "@shared/schema";
-import { db } from "./db";
 import { eq, and, gte, lte } from "drizzle-orm";
 
 export interface IStorage {
@@ -102,6 +101,8 @@ export class MemStorage implements IStorage {
   }
 }
 
+// DatabaseStorage class commented out for now (database connection issues)
+/*
 export class DatabaseStorage implements IStorage {
   async createMorningEntry(insertEntry: InsertMorningEntry): Promise<MorningEntry> {
     const [entry] = await db
@@ -173,5 +174,7 @@ export class DatabaseStorage implements IStorage {
     return updatedStats;
   }
 }
+*/
 
-export const storage = new DatabaseStorage();
+// Use in-memory storage for now (database connection issues)
+export const storage = new MemStorage();
