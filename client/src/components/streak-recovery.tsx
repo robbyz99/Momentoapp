@@ -19,10 +19,7 @@ export default function StreakRecovery({ onComplete, onSkip }: StreakRecoveryPro
 
   const createReflectionMutation = useMutation({
     mutationFn: async (data: InsertReflection) => {
-      const response = await apiRequest("/api/reflections", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const response = await apiRequest("/api/reflections", "POST", JSON.stringify(data));
       return response.json();
     },
     onSuccess: () => {

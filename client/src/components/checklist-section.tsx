@@ -79,7 +79,7 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
       const today = new Date().toDateString();
       const lastCompletionDate = userStats.lastCompletionDate;
       
-      let newStreak = userStats.currentStreak;
+      let newStreak = userStats.currentStreak || 0;
       
       if (lastCompletionDate) {
         const lastDate = new Date(lastCompletionDate);
@@ -96,8 +96,8 @@ export default function ChecklistSection({ onComplete, onNext, onStatsUpdate }: 
       }
       
       updateStatsMutation.mutate({
-        currentStreak: newStreak,
-        totalCompletions: userStats.totalCompletions + 1,
+        currentStreak: newStreak || 0,
+        totalCompletions: (userStats.totalCompletions || 0) + 1,
         lastCompletionDate: today,
       });
     }

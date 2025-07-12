@@ -26,10 +26,7 @@ export default function QuickMode({ onComplete, onStatsUpdate }: QuickModeProps)
 
   const createEntryMutation = useMutation({
     mutationFn: async (data: InsertMorningEntry) => {
-      const response = await apiRequest("/api/morning-entries", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
+      const response = await apiRequest("/api/morning-entries", "POST", JSON.stringify(data));
       return response.json();
     },
     onSuccess: () => {
