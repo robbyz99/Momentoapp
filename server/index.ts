@@ -3,10 +3,12 @@ import { registerRoutes } from "./routes.js";
 import { setupVite, serveStatic, log } from "./vite.js";
 import dotenv from "dotenv";
 
-// Load environment variables from .env file
+// Force new deployment - import paths fixed
 dotenv.config();
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -61,7 +63,6 @@ app.use((req, res, next) => {
   }
 
   // Serve the app on port 3000 to avoid conflicts
-  const port = 3000;
   server.listen({
     port,
     host: "0.0.0.0",
