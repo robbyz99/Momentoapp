@@ -1,7 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-import { drizzle } from 'https://esm.sh/drizzle-orm@0.29.3/postgres-js'
-import postgres from 'https://esm.sh/postgres@3.4.3'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -57,11 +55,6 @@ serve(async (req) => {
     const supabaseKey = Deno.env.get('SUPABASE_ANON_KEY') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdscWttcXVjZ2djY254eGxianpxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNTI2OTksImV4cCI6MjA2NzkyODY5OX0.c3lrKS3rvrS6C-nM98bDYrG-xtYTaLHeLIDFY2DQy1g'
     
     const supabase = createClient(supabaseUrl, supabaseKey)
-
-    // Database connection
-    const connectionString = `postgresql://postgres:UR8mIV7amEbsS8oG@db.glqkmqucggccnxxlbjzq.supabase.co:5432/postgres?pgbouncer=true`
-    const client = postgres(connectionString, { prepare: false })
-    const db = drizzle(client)
 
     // Route handling
     if (path === '/api/user-stats' && req.method === 'GET') {
